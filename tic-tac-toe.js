@@ -18,8 +18,12 @@ window.onload = function() {
 		var squares = document.getElementsByTagName("div");
 		for (let i = 3; i < GRID_SIZE; i++) { //Iterates through all the divs but begins at the 3rd grid that makes the board.
 			squares[i].classList.add("square");
-			squares[i].onmouseover = squares[i].classList.toggle("hover", true);
-			squares[i].onmouseout = squares[i].classList.toggle("hover", false);
+			squares[i].onmouseover = function() {
+				squares[i].classList.toggle("hover", true);
+			}
+			squares[i].onmouseout = function() {
+				squares[i].classList.toggle("hover", false);
+			}
 			squares[i].onclick = function() {  //Checks if someone clicks a square on the board
 			if (squares[i].innerHTML === "" || squares[i].innerHTML === "O") {
 				squares[i].classList.toggle("O", false)
@@ -42,44 +46,44 @@ window.onload = function() {
 
 	//**EXERCISE 4**//
 	function checkWinner(value) {
-		if (value[0].innerHTML !== "" && value[0].innerHTML === value[1].innerHTML && value[0].innerHTML === value[2].innerHTML) {
-			document.getElementById("status").className = "you-won"
-			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
-		} 
-
-		else if (value[3].innerHTML !== "" && value[3].innerHTML === value[4].innerHTML && value[3].innerHTML === value[5].innerHTML) {
+		if (value[3].innerHTML !== "" && value[3].innerHTML === value[4].innerHTML && value[3].innerHTML === value[5].innerHTML) {
 			document.getElementById("status").className = "you-won"
 			document.getElementById("status").innerHTML = "Congratulations! " + value[3].innerHTML + " is the Winner!"
-		}
+		} 
 
 		else if (value[6].innerHTML !== "" && value[6].innerHTML === value[7].innerHTML && value[6].innerHTML === value[8].innerHTML) {
 			document.getElementById("status").className = "you-won"
 			document.getElementById("status").innerHTML = "Congratulations! " + value[6].innerHTML + " is the Winner!"
 		}
 
-		else if (value[0].innerHTML !== "" && value[0].innerHTML === value[3].innerHTML && value[0].innerHTML === value[6].innerHTML) {
+		else if (value[9].innerHTML !== "" && value[9].innerHTML === value[10].innerHTML && value[9].innerHTML === value[11].innerHTML) {
 			document.getElementById("status").className = "you-won"
-			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[9].innerHTML + " is the Winner!"
 		}
 
-		else if (value[1].innerHTML !== "" && value[1].innerHTML === value[4].innerHTML && value[1].innerHTML === value[7].innerHTML) {
+		else if (value[3].innerHTML !== "" && value[3].innerHTML === value[6].innerHTML && value[3].innerHTML === value[9].innerHTML) {
 			document.getElementById("status").className = "you-won"
-			document.getElementById("status").innerHTML = "Congratulations! " + value[1].innerHTML + " is the Winner!"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[3].innerHTML + " is the Winner!"
 		}
 
-		else if (value[2].innerHTML !== "" && value[2].innerHTML === value[5].innerHTML && value[2].innerHTML === value[8].innerHTML) {
+		else if (value[4].innerHTML !== "" && value[4].innerHTML === value[7].innerHTML && value[4].innerHTML === value[10].innerHTML) {
 			document.getElementById("status").className = "you-won"
-			document.getElementById("status").innerHTML = "Congratulations! " + value[2].innerHTML + " is the Winner!"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[4].innerHTML + " is the Winner!"
 		}
 
-		else if (value[0].innerHTML !== "" && value[0].innerHTML === value[4].innerHTML && value[0].innerHTML === value[8].innerHTML) {
+		else if (value[5].innerHTML !== "" && value[5].innerHTML === value[8].innerHTML && value[5].innerHTML === value[11].innerHTML) {
 			document.getElementById("status").className = "you-won"
-			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[5].innerHTML + " is the Winner!"
 		}
 
-		else if (value[2].innerHTML !== "" && value[2].innerHTML === value[4].innerHTML && value[2].innerHTML === value[6].innerHTML) {
+		else if (value[3].innerHTML !== "" && value[3].innerHTML === value[7].innerHTML && value[3].innerHTML === value[11].innerHTML) {
 			document.getElementById("status").className = "you-won"
-			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[3].innerHTML + " is the Winner!"
+		}
+
+		else if (value[5].innerHTML !== "" && value[5].innerHTML === value[7].innerHTML && value[5].innerHTML === value[9].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[5].innerHTML + " is the Winner!"
 		}
 	}
 
