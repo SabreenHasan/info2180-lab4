@@ -15,18 +15,62 @@ window.onload = function() {
 			squares[i].onclick = function() {  //Checks if someone clicks a square on the board
 			if (squares[i].innerHTML === "" || squares[i].innerHTML === "O") {
 				squares[i].classList.toggle("X", true)
-				squares[i].innerHTML = "X"; 
+				checkWinner(squares) 
 				squares[i].classList.toggle("O", false)
+				squares[i].innerHTML = "X"
 			}
 
 			else if (squares[i].innerHTML === "X") {
 				squares[i].classList.toggle("X", false)
 				squares[i].innerHTML = "O"
 				squares[i].classList.toggle("O", true)
+				checkWinner(squares)
 			}
 			
 		}	
 		console.log(squares);	
+	}
+
+	function checkWinner(value) {
+		if (value[0].innerHTML !== "" && value[0].innerHTML === value[1].innerHTML && value[0].innerHTML === value[2].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+		} 
+
+		else if (value[3].innerHTML !== "" && value[3].innerHTML === value[4].innerHTML && value[3].innerHTML === value[5].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[3].innerHTML + " is the Winner!"
+		}
+
+		else if (value[6].innerHTML !== "" && value[6].innerHTML === value[7].innerHTML && value[6].innerHTML === value[8].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[6].innerHTML + " is the Winner!"
+		}
+
+		else if (value[0].innerHTML !== "" && value[0].innerHTML === value[3].innerHTML && value[0].innerHTML === value[6].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+		}
+
+		else if (value[1].innerHTML !== "" && value[1].innerHTML === value[4].innerHTML && value[1].innerHTML === value[7].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[1].innerHTML + " is the Winner!"
+		}
+
+		else if (value[2].innerHTML !== "" && value[2].innerHTML === value[5].innerHTML && value[2].innerHTML === value[8].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[2].innerHTML + " is the Winner!"
+		}
+
+		else if (value[0].innerHTML !== "" && value[0].innerHTML === value[4].innerHTML && value[0].innerHTML === value[8].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+		}
+
+		else if (value[2].innerHTML !== "" && value[2].innerHTML === value[4].innerHTML && value[2].innerHTML === value[6].innerHTML) {
+			document.getElementById("status").className = "you-won"
+			document.getElementById("status").innerHTML = "Congratulations! " + value[0].innerHTML + " is the Winner!"
+		}
 	}
 		
 
